@@ -1,8 +1,10 @@
 package com.example.baitap_tuan03;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,17 +32,47 @@ public class MainActivity2 extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
 
         btnXong.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent  = new Intent(MainActivity2.this,MainActivity.class);
+//                startActivity(intent);
+
+
+
+
+
+//            }
+
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View v) {
-                Intent intent  = new Intent(MainActivity2.this,MainActivity.class);
-                startActivity(intent);
+                imageView6 = (ImageView) findViewById(R.id.imageView6);
+                if (imageView6.getDrawable().getConstantState().equals(imageView6.getContext().getDrawable(R.drawable.vs_bac).getConstantState())) {
+                    Intent act2 = new Intent(MainActivity2.this, MainActivity.class);
+                    act2.putExtra("ImgRe", R.drawable.vs_bac);
+                    startActivity(act2);
+                }
 
+                if (imageView6.getDrawable().getConstantState().equals(imageView6.getContext().getDrawable(R.drawable.vs_red_a).getConstantState())) {
+                    Intent act2 = new Intent(MainActivity2.this, MainActivity.class);
+                    act2.putExtra("ImgRe", R.drawable.vs_red_a);
+                    startActivity(act2);
+                }
 
+                if (imageView6.getDrawable().getConstantState().equals(imageView6.getContext().getDrawable(R.drawable.vsmart_black_star).getConstantState())) {
+                    Intent act2 = new Intent(MainActivity2.this, MainActivity.class);
+                    act2.putExtra("ImgRe", R.drawable.vsmart_black_star);
+                    startActivity(act2);
+                }
 
-
-
+                if (imageView6.getDrawable().getConstantState().equals(imageView6.getContext().getDrawable(R.drawable.vsmart_live_xanh1).getConstantState())) {
+                    Intent act2 = new Intent(MainActivity2.this, MainActivity.class);
+                    act2.putExtra("ImgRe", R.drawable.vsmart_live_xanh1);
+                    startActivity(act2);
+                }
             }
         });
+
         reTurn_bac(btnBac,new ThayDoi("Mau: Bạc","Tiki","80.000đ",R.drawable.vs_bac));
         reTurn_red(btnDo,new ThayDoi("Mau: Đỏ","Tiki","80.000đ",R.drawable.vs_red_a));
         reTurn_black(btnDen,new ThayDoi("Mau: Đen","Tiki","80.000đ",R.drawable.vsmart_black_star));

@@ -14,6 +14,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     Button button;
     Intent i;
+    ImageView img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = (TextView) findViewById(R.id.txt_giamgia);
         tv.setPaintFlags(tv.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
     button = findViewById(R.id.btn_Mau);
+        img =(ImageView)findViewById(R.id.imageView);
+        img.setImageResource(getIntent().getIntExtra("ImgRe",R.drawable.vsmart_live_xanh1));
     button.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
